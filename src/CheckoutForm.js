@@ -13,7 +13,7 @@ class CheckoutForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { total } = this.props;
+    const { total, subtotal } = this.props;
     const { firstName, lastName, email, creditCard, zipCode } = this.state;
     if (!firstName || !lastName || !email) {
       window.alert("Input is not valid");
@@ -22,7 +22,7 @@ class CheckoutForm extends React.Component {
     } else if (zipCode.length !== 5) {
       window.alert("Zip code is not valid");
     } else {
-      window.alert(`Purchase complete ${formatPrice(total)}`);
+      window.alert(`Purchase complete ${formatPrice(subtotal * 0.05 + subtotal)}`);
     }
   };
 

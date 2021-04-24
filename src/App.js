@@ -5,7 +5,7 @@ import ProductList from "./ProductList";
 import ShoppingCart from "./ShoppingCart";
 
 class App extends React.Component {
-  state = { cart: [] };
+  state = { cart: [], total: 0, subtotal: 0, tax: 0 };
 
   addProduct = (item) => {
     this.setState((prevState) => {
@@ -15,13 +15,16 @@ class App extends React.Component {
 
   render() {
     const { cart } = this.state;
-    let total = 0;
-    this.state.cart.forEach((item) => total += item.price);
+    let subtotal = 0;
+  
+    this.state.cart.forEach((item) => subtotal += item.price);
+  
+
     return (
       <section>
         <ProductList addProduct={this.addProduct} />
-        <ShoppingCart cart={cart} total={total || 0}/>
-        <CheckoutForm total={total || 0}/>
+        <ShoppingCart cart={cart} subtotal={subtotal || 0}/>
+        <CheckoutForm subtotal={subtotal || 0}/>
       </section>
     );
   }

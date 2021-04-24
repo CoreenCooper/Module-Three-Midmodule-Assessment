@@ -6,7 +6,7 @@ const ProductListItems = ({product, addProduct}) => {
     return (
         <li>
             <h3>{name}</h3>
-            <p>Price: {price}</p>
+            <p>Price: ${price.toFixed(2)}</p>
             <button>Add To Cart</button>
             <img src={img} alt="item"/>
             <p>{description}</p>

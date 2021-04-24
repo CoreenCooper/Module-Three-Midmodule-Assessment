@@ -1,7 +1,10 @@
 import "./App.css";
+import ProductList from "./ProductList";
 
 const App = () => {
-  return <h1>Hello, world!</h1>;
+  return (
+  <ProductList />
+    );
 };
 
 export default App;

@@ -7,10 +7,13 @@ class CheckoutForm extends React.Component {
     email: "",
     creditCard: "",
     zipCode: "",
+    total: ""
   };
 
   handleSubmit = (e) => {
+      const { total } = this.state;
     e.preventDefault();
+    window.alert(`Purchase complete $${total}`)
   };
 
   handleChange = (e) => {

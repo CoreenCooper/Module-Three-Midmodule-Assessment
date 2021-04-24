@@ -8,7 +8,7 @@ const ProductListItems = ({product, addProduct}) => {
         <li>
             <h3>{name}</h3>
             <p>Price: {formatPrice(price)}</p>
-            <button>Add To Cart</button>
+            <button onClick={()=> addProduct(product)}>Add To Cart</button>
             <img src={img} alt="item"/>
             <p>{description}</p>
         </li>

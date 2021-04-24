@@ -1,17 +1,26 @@
 import React from "react";
+import formatPrice from "./helpers/formatPrice";
 
-const ShoppingCart = () => {
-    return (
-        <section>
-            <h2>Cart</h2>
-            <ul>
-                <li>name: price</li>
-            </ul>
-            <h3>Subtotal: price</h3>
-            <h3>Tax: $0.00</h3>
-            <h3>Total: $00.00</h3>
-        </section>
-    )
-}
+const ShoppingCart = ({ cart, total }) => {
+  return (
+    <section>
+      <h2>Cart</h2>
+      <ul>
+        {cart.map((product) => {
+          console.log(product);
+          const { name, price, id } = product;
+          return (
+            <li key={id}>
+              {name}: {formatPrice(price)}
+            </li>
+          );
+        })}
+      </ul>
+      <h3>Subtotal: {formatPrice(total)}</h3>
+      <h3>Tax: {formatPrice(total * .05)}</h3>
+      <h3>Total: {formatPrice(total)}</h3>
+    </section>
+  );
+};
 
 export default ShoppingCart;

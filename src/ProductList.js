@@ -3,9 +3,10 @@ import productData from "./data/productData";
 import ProductListItem from "./ProductListItem"
 import "./ProductList.css"
 
-const ProductList = () => {
+const ProductList = ({addProduct}) => {
+
     const products = productData.map(product => {
-        return <ProductListItem key={product.id} product={product} />
+        return <ProductListItem key={product.id} product={product} addProduct={addProduct}/>
     })
 
     return(

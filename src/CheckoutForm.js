@@ -1,4 +1,5 @@
 import React from "react";
+import formatPrice from "./helpers/formatPrice";
 
 class CheckoutForm extends React.Component {
   state = {
@@ -7,13 +8,22 @@ class CheckoutForm extends React.Component {
     email: "",
     creditCard: "",
     zipCode: "",
-    total: ""
+    total: "",
   };
 
   handleSubmit = (e) => {
-      const { total } = this.state;
     e.preventDefault();
-    window.alert(`Purchase complete $${total}`)
+    const { total } = this.props;
+    const { firstName, lastName, email, creditCard, zipCode } = this.state;
+    if (!firstName || !lastName || !email) {
+      window.alert("Input is not valid");
+    } else if (creditCard.length !== 16) {
+      window.alert("Credit card number is not valid");
+    } else if (zipCode.length !== 5) {
+      window.alert("Zip code is not valid");
+    } else {
+      window.alert(`Purchase complete ${formatPrice(total)}`);
+    }
   };
 
   handleChange = (e) => {

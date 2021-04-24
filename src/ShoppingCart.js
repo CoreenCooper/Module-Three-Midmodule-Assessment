@@ -17,7 +17,7 @@ const ShoppingCart = ({ cart, total }) => {
         })}
       </ul>
       <h3>Subtotal: {formatPrice(total)}</h3>
-      <h3>Tax: {formatPrice(total * .05)}</h3>
+      <h3>Tax: {formatPrice(total * .05)}</h3> {/*fix this section*/}
       <h3>Total: {formatPrice(total)}</h3>
     </section>
   );

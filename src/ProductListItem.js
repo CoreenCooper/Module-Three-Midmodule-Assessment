@@ -1,4 +1,5 @@
 import React from "react";
+import formatPrice from "./helpers/formatPrice"
 
 const ProductListItems = ({product, addProduct}) => {
     const { name, price, description, img } = product;
@@ -6,7 +7,7 @@ const ProductListItems = ({product, addProduct}) => {
     return (
         <li>
             <h3>{name}</h3>
-            <p>Price: ${price.toFixed(2)}</p>
+            <p>Price: {formatPrice(price)}</p>
             <button>Add To Cart</button>
             <img src={img} alt="item"/>
             <p>{description}</p>

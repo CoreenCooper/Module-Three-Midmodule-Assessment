@@ -5,7 +5,6 @@ import "./ProductList.css"
 
 const ProductList = () => {
     const products = productData.map(product => {
-        console.log(product.price)
         return <ProductListItem key={product.id} product={product} />
     })
 

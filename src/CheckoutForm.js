@@ -1,24 +1,70 @@
 import React from "react";
 
-const CheckoutForm = () => {
+class CheckoutForm extends React.Component {
+  state = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    creditCard: "",
+    zipCode: "",
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+    console.log(value);
+  };
+
+  render() {
+    const { firstName, lastName, email, creditCard, zipCode } = this.state;
     return (
-<section>
-    <h2>Checkout</h2>
-    <form>
-        <label htmlFor="firstName">First Name</label>
-        <input id="firstName"/>
-        <label htmlFor="lastName">Last Name</label>
-        <input id="lastName"/>
-        <label htmlFor="email">Email</label>
-        <input id="email"/>
-        <label htmlFor="creditCard">Credit Card</label>
-        <input id="creditCard"/>
-        <label htmlFor="zipCode">Zip Code</label>
-        <input id="zipCode"/>
-        <button>Buy Now</button>
-    </form>
-</section>
-    )
+      <section>
+        <h2>Checkout</h2>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="firstName">First Name</label>
+          <input
+            id="firstName"
+            name="firstName"
+            onChange={this.handleChange}
+            value={firstName}
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            id="lastName"
+            name="lastName"
+            onChange={this.handleChange}
+            value={lastName}
+          />
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            onChange={this.handleChange}
+            value={email}
+          />
+          <label htmlFor="creditCard">Credit Card</label>
+          <input
+            id="creditCard"
+            name="creditCard"
+            onChange={this.handleChange}
+            value={creditCard}
+          />
+          <label htmlFor="zipCode">Zip Code</label>
+          <input
+            id="zipCode"
+            name="zipCode"
+            onChange={this.handleChange}
+            value={zipCode}
+          />
+          <button>Buy Now</button>
+        </form>
+      </section>
+    );
+  }
 }
 
 export default CheckoutForm;

@@ -1,6 +1,7 @@
 import React from "react";
 import productData from "./data/productData";
 import ProductListItem from "./ProductListItem"
+import "./ProductList.css"
 
 const ProductList = () => {
     const products = productData.map(product => {
